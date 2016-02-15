@@ -7,12 +7,19 @@
     <!-- <div ng-show="!store.product.soldOut"> -->
     <div ng-repeat="product in store.products">
       <h1> {{product.name}} </h1>
-      <h2> ${{product.price}} </h2>
+      <em class="pull-right"><h2> {{product.price | currency }} </h2></em>
       <p> {{product.description}} </p>
     <!-- <button ng-show="store.product[0].canPurchase"> Add to Cart </button> -->
+    <img ng-src="{{product.images[0].full}}"/>
     <button ng-show="product.canPurchase"> Add to Cart </button>
     </div>
     <script type="text/javascript" src="angular.min.js"></script>
     <script type="text/javascript" src="app.js"></script>
   </body>
 </html>
+
+<!-- type of filters after pipe {{ data | options }}
+options: currency, date:'MM/dd/yyyy @ h:mma'
+         uppercase, limitTo:8, orderBy:-price
+
+-->
